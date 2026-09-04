@@ -2,7 +2,12 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SESSION_COOKIE, verifySessionToken } from "@/lib/session";
 
 // Twilio needs to reach these without a login cookie.
-const PUBLIC_PREFIXES = ["/login", "/api/twiml", "/api/webhooks"];
+const PUBLIC_PREFIXES = [
+  "/login",
+  "/api/twiml",
+  "/api/webhooks",
+  "/opt-in-policy",
+];
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
