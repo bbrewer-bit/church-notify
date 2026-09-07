@@ -35,15 +35,15 @@ export async function POST(request: NextRequest) {
   });
   gather.pause({ length: 2 });
   gather.say(
-    { voice: "Polly.Joanna" },
+    { voice: "Polly.Matthew-Neural" },
     "Hello, this is Spruce Pine Grove Baptist Church with an announcement."
   );
   gather.pause({ length: 1 });
   gather.say(
-    { voice: "Polly.Joanna" },
+    { voice: "Polly.Matthew-Neural" },
     `${message}. To hear this message again, press 1. To be removed from future phone announcements, press 9.`
   );
-  response.say({ voice: "Polly.Joanna" }, "Thank you. Goodbye.");
+  response.say({ voice: "Polly.Matthew-Neural" }, "Thank you. Goodbye.");
 
   return new NextResponse(response.toString(), {
     headers: { "Content-Type": "text/xml" },

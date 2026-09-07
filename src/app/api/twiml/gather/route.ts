@@ -52,11 +52,11 @@ export async function POST(request: NextRequest) {
     }
 
     response.say(
-      { voice: "Polly.Joanna" },
+      { voice: "Polly.Matthew-Neural" },
       "You have been removed from future phone announcements. Goodbye."
     );
   } else {
-    response.say({ voice: "Polly.Joanna" }, "Thank you. Goodbye.");
+    response.say({ voice: "Polly.Matthew-Neural" }, "Thank you. Goodbye.");
   }
   response.hangup();
 
