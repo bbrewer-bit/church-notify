@@ -33,9 +33,15 @@ export async function POST(request: NextRequest) {
     method: "POST",
     timeout: 6,
   });
+  gather.pause({ length: 2 });
   gather.say(
     { voice: "Polly.Joanna" },
-    `${message}. To be removed from future phone announcements, press 9 now.`
+    "Hello, this is Spruce Pine Grove Baptist Church with an announcement."
+  );
+  gather.pause({ length: 1 });
+  gather.say(
+    { voice: "Polly.Joanna" },
+    `${message}. To hear this message again, press 1. To be removed from future phone announcements, press 9.`
   );
   response.say({ voice: "Polly.Joanna" }, "Thank you. Goodbye.");
 

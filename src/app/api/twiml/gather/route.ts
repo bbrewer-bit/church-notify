@@ -16,7 +16,18 @@ export async function POST(request: NextRequest) {
 
   const digits = params.Digits;
   const callSid = params.CallSid;
+  const blastId = request.nextUrl.searchParams.get("blastId");
   const response = twiml();
+
+  if (digits === "1") {
+    response.redirect(
+      { method: "POST" },
+      `/api/twiml/voice?blastId=${encodeURIComponent(blastId ?? "")}`
+    );
+    return new NextResponse(response.toString(), {
+      headers: { "Content-Type": "text/xml" },
+    });
+  }
 
   if (digits === "9" && callSid) {
     const supabase = supabaseService();
