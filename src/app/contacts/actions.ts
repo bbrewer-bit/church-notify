@@ -16,11 +16,16 @@ export async function createContact(
   const phoneRaw = String(formData.get("phone") ?? "").trim();
   const email = String(formData.get("email") ?? "").trim();
   const notes = String(formData.get("notes") ?? "").trim();
+  const smsOptIn = formData.get("sms_opt_in") === "on";
+  const voiceOptIn = formData.get("voice_opt_in") === "on";
 
   if (!firstName) return { error: "First name is required." };
   const phone = toE164(phoneRaw);
   if (!phone) {
     return { error: `"${phoneRaw}" doesn't look like a valid phone number.` };
+  }
+  if (!smsOptIn && !voiceOptIn) {
+    return { error: "Choose at least one way to reach this person: texts, calls, or both." };
   }
 
   const { error } = await supabaseService().from("contacts").insert({
@@ -29,6 +34,8 @@ export async function createContact(
     phone,
     email: email || null,
     notes: notes || null,
+    sms_opt_in: smsOptIn,
+    voice_opt_in: voiceOptIn,
   });
 
   if (error) {

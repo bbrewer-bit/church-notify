@@ -47,6 +47,16 @@ export default function AddContactForm() {
       >
         {pending ? "Adding..." : "Add congregant"}
       </button>
+      <div className="col-span-full flex gap-6">
+        <label className="flex items-center gap-2 text-sm text-slate-700">
+          <input type="checkbox" name="sms_opt_in" defaultChecked />
+          Can receive texts
+        </label>
+        <label className="flex items-center gap-2 text-sm text-slate-700">
+          <input type="checkbox" name="voice_opt_in" defaultChecked />
+          Can receive calls
+        </label>
+      </div>
       {state?.error && (
         <p className="col-span-full text-sm text-red-600">{state.error}</p>
       )}
