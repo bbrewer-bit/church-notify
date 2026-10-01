@@ -10,14 +10,14 @@ export default function OptInPolicyPage() {
       <div className="flex items-center gap-4 border-b-2 border-[#0b2a4d] pb-6">
         <Image
           src="/icons/icon-192.png"
-          alt="Spruce Pine Grove Missionary Baptist Church logo"
+          alt="Spruce Pine Grove Baptist Church logo"
           width={56}
           height={56}
           className="rounded-lg"
         />
         <div>
           <h1 className="text-lg font-semibold text-[#0b2a4d]">
-            Spruce Pine Grove Missionary Baptist Church
+            Spruce Pine Grove Baptist Church
           </h1>
           <p className="mt-0.5 text-sm text-slate-500">
             1409 Tennessee 31, Mooresburg, TN &middot; (833) 681-3555
@@ -41,7 +41,7 @@ export default function OptInPolicyPage() {
           How People Join Our List
         </h3>
         <p className="mt-2 max-w-prose text-[15px] leading-relaxed text-slate-800">
-          Congregants and visitors are added to Spruce Pine Grove Missionary
+          Congregants and visitors are added to Spruce Pine Grove 
           Baptist Church&rsquo;s text and phone announcement list only after
           giving their name and mobile number directly to the church office or
           pastoral staff &mdash; in person, by phone, or on a paper
@@ -82,7 +82,7 @@ export default function OptInPolicyPage() {
         </h3>
         <p className="mt-2 max-w-prose text-[15px] leading-relaxed text-slate-800">
           Message and data rates may apply, per the recipient&rsquo;s own
-          mobile carrier plan. Spruce Pine Grove Missionary Baptist Church
+          mobile carrier plan. Spruce Pine Grove Baptist Church
           does not charge for these announcements.
         </p>
       </section>
@@ -119,7 +119,7 @@ export default function OptInPolicyPage() {
         </h3>
         <div className="mt-2 max-w-prose rounded-lg border border-slate-200 bg-white p-5">
           <p className="font-semibold text-[#0b2a4d]">
-            Spruce Pine Grove Missionary Baptist Church
+            Spruce Pine Grove Baptist Church
           </p>
           <p className="mt-1 text-sm text-slate-500">
             1409 Tennessee 31, Mooresburg, TN
@@ -129,7 +129,7 @@ export default function OptInPolicyPage() {
       </section>
 
       <footer className="mt-12 max-w-prose border-t border-slate-200 pt-5 text-sm text-slate-400">
-        This page documents Spruce Pine Grove Missionary Baptist Church&rsquo;s
+        This page documents Spruce Pine Grove Baptist Church&rsquo;s
         opt-in consent process and messaging practices for its text and
         automated phone announcement system, for reference by mobile carriers
         and messaging platform reviewers.
