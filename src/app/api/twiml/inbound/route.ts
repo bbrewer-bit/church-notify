@@ -1,4 +1,3 @@
-ts
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseService } from "@/lib/supabase/service";
 import { isValidTwilioRequest, twiml, appBaseUrl } from "@/lib/twilio";
