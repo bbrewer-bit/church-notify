@@ -42,6 +42,9 @@ export async function placeVoiceCall(opts: { to: string; blastId: string }) {
     )}`,
     statusCallback: `${appBaseUrl()}/api/webhooks/call-status`,
     statusCallbackEvent: ["initiated", "answered", "completed"],
+   // Wait for a voicemail greeting to finish (the beep) before running the
+   // announcement, so the message isn't spoken over the greeting.
+   machineDetection: "DetectMessageEnd",
   });
 }
 
