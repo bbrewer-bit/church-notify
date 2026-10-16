@@ -27,6 +27,38 @@ export async function POST(request: NextRequest) {
     if (blast?.message) message = blast.message;
   }
 
+   // Set by Twilio's answering machine detection (see placeVoiceCall).
+  const answeredBy = params.AnsweredBy ?? "";
+
+  // Fax machine: nothing useful to say.
+  if (answeredBy === "fax") {
+    response.hangup();
+    return new NextResponse(response.toString(), {
+      headers: { "Content-Type": "text/xml" },
+    });
+  }
+
+  // Voicemail. Twilio has already waited out the greeting and the beep, so
+  // everything below is what actually gets recorded. No "press 1 / press 9"
+  // prompts here because nobody is there to press anything.
+  if (answeredBy.startsWith("machine")) {
+    response.pause({ length: 1 });
+    response.say(
+      { voice: "Polly.Matthew-Neural" },
+      "Hello, this is Spruce Pine Grove Baptist Church with an announcement."
+    );
+    response.pause({ length: 1 });
+    response.say({ voice: "Polly.Matthew-Neural" }, `${message}.`);
+    response.pause({ length: 1 });
+    response.say(
+      { voice: "Polly.Matthew-Neural" },
+      "You can call this number back any time to hear this message again. To be removed from future phone announcements, please contact the church office. Goodbye."
+    );
+    response.hangup();
+    return new NextResponse(response.toString(), {
+      headers: { "Content-Type": "text/xml" },
+    });
+  }
   const gather = response.gather({
     numDigits: 1,
     action: `/api/twiml/gather?blastId=${encodeURIComponent(blastId ?? "")}`,
